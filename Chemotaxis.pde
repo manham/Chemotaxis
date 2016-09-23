@@ -21,11 +21,13 @@
  }  
  class Bacteria    
  {     
- 	int myX, myY, life, myColor;
+ 	int myX, myY, life, myColor, myChildX, myChildY;
  	Bacteria(int x, int y)
  	{
  		myX = x;
  		myY = y;
+ 		myChildX = (int)(Math.random()*401);
+ 		myChildY = (int)(Math.random()*401);
  		life = 0;
  		myColor = color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
  	} 
@@ -43,6 +45,10 @@
  	}
  	void reproduce()
  	{
- 		
+ 		if(life > 100)
+ 		{
+ 			fill(myColor);
+ 			ellipse(myChildX + (int)(Math.random()*21) - 10, myChildY + (int)(Math.random()*21) - 10, 10, 10);
+ 		}
  	}
  }    
